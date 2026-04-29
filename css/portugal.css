@@ -1,0 +1,376 @@
+/* RESET & BASICS */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --lisboa-red: #8b1e3f;
+    --lisboa-gold: #c5a059;
+    --lisboa-cream: #fef7f0;
+    --white: #ffffff;
+    --text-dark: #2b2b2b;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--lisboa-cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+/* CONTENEDORES */
+.container-fluid {
+    width: 100%;
+    padding: 20px;
+}
+
+.reservation-container {
+    max-width: 500px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+.reservation-container:hover {
+    transform: translateY(-3px);
+}
+
+/* HERO */
+.hero {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0') center/cover;
+}
+.hero h1 {
+    font-family: 'Playfair Display';
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+/* NAV */
+.nav-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+.nav-btn {
+    flex: 1;
+    max-width: 150px;
+    padding: 12px;
+    border-radius: 30px;
+    border: 2px solid var(--lisboa-red);
+    background: transparent;
+    color: var(--lisboa-red);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.nav-btn:hover {
+    background: var(--lisboa-red);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* CATEGORÍAS */
+.category-buttons {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 15px 20px;
+}
+.category-buttons::-webkit-scrollbar { display: none; }
+
+.category-buttons button {
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 1px solid var(--lisboa-red);
+    background: white;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.category-buttons button:hover {
+    background: var(--lisboa-red);
+    color: white;
+}
+
+/* GRID */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+    padding: 25px;
+}
+
+/* CARD */
+.menu-item {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    transition: all 0.25s ease;
+}
+.menu-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.menu-card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.menu-info {
+    padding: 18px;
+    text-align: center;
+}
+
+.menu-info h3 {
+    font-family: 'Playfair Display';
+    margin-bottom: 5px;
+}
+
+.menu-info p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* BOTÓN */
+.add-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--lisboa-red);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    margin-top: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+.add-btn:hover {
+    background: #6f1832;
+    transform: scale(1.03);
+}
+
+/* LAYOUT INFERIOR */
+.bottom-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 20px;
+}
+
+@media (min-width: 992px) {
+    .bottom-layout {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .cart-section {
+        flex: 1;
+        position: sticky;
+        top: 90px;
+    }
+    .history-panel {
+        flex: 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+}
+
+.order-panel, .history-panel {
+    background: white;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+/* HISTORIAL */
+.history-item {
+    background: #fafafa;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--lisboa-red);
+    list-style: none;
+    transition: all 0.2s ease;
+}
+.history-item:hover {
+    background: #f1f1f1;
+}
+
+.history-actions {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+.history-actions button {
+    flex: 1;
+    padding: 6px;
+    font-size: 0.75rem;
+    border-radius: 6px;
+    border: none;
+    background: #eee;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.history-actions button:hover {
+    background: var(--lisboa-red);
+    color: white;
+}
+
+/* FORMULARIOS */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    transition: all 0.2s ease;
+}
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--lisboa-red);
+    box-shadow: 0 0 0 2px rgba(139,30,63,0.1);
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-reserve {
+    width: 100%;
+    padding: 15px;
+    background: var(--lisboa-red);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.btn-reserve:hover {
+    background: #6f1832;
+    transform: translateY(-2px);
+}
+
+/* MODAL */
+.modal-content {
+    width: 95%;
+    max-width: 350px;
+    background: white;
+    border-radius: 10px;
+}
+
+/* =========================
+   🎟️ TICKET (CORREGIDO)
+   ========================= */
+
+.elegant-ticket {
+    padding: 25px;
+    border-radius: 16px;
+    background: #ffffff; /* ❗ sin gradient */
+    border: 2px dashed var(--lisboa-gold);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    font-family: 'Inter', sans-serif;
+
+    /* ❌ IMPORTANTE: quitar animación */
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+.ticket-header {
+    text-align: center;
+}
+
+.ticket-header h2 {
+    font-family: 'Playfair Display';
+    color: var(--lisboa-red);
+    margin-bottom: 5px;
+}
+
+.ticket-sub {
+    font-size: 0.75rem;
+    color: #777;
+    letter-spacing: 1px;
+}
+
+.ticket-divider {
+    border-top: 1px dashed #ccc;
+    margin: 12px 0;
+}
+
+.ticket-info p {
+    font-size: 0.85rem;
+    margin: 3px 0;
+}
+
+.ticket-items {
+    margin-top: 5px;
+}
+
+.ticket-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    padding: 4px 0;
+}
+
+.ticket-empty {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.ticket-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--lisboa-red);
+}
+
+.ticket-footer {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.ticket-footer p {
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+}
+
+.ticket-footer small {
+    font-size: 0.7rem;
+    color: #777;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .hero h1 { font-size: 1.6rem; }
+    .nav-btn { font-size: 0.7rem; padding: 10px 5px; }
+    .btn-group-responsive {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
